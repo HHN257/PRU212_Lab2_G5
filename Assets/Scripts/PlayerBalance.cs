@@ -36,9 +36,11 @@ public class PlayerBalance : MonoBehaviour
     public TextMeshProUGUI scoreText; // Kéo TextMeshProUGUI hiển thị điểm vào đây
     public TextMeshProUGUI greatEffectText; // Kéo TextMeshProUGUI hiển thị "Great" vào đây
     public float scorePerSecond = 10f; // Điểm tăng mỗi giây
-    public int doubleJumpTrickPoints = 1000; // Điểm thưởng cho cú double jump 360 thành công
-    public float greatEffectDuration = 1.0f; // Thời gian hiển thị hiệu ứng "Great"
+    public int doubleJumpTrickPoints = 1000; // Điểm thưởng cho cú double jump 360 thành công (Perfect)
+    public int greatJumpTrickPoints = 500; // Điểm thưởng cho cú double jump 360 thành công (Great)
+    public float greatEffectDuration = 1.0f; // Thời gian hiển thị hiệu ứng "Great" hoặc "Perfect"
     public float perfectLandingBonusAngle = 10f; // Góc nghiêng tối đa cho phép để nhận điểm bonus khi tiếp đất hoàn hảo
+    public float greatLandingBonusAngle = 30f; // Góc nghiêng tối đa cho phép để nhận điểm bonus khi tiếp đất tốt
     public float maxPerfectLandingAngularVelocity = 50f; // Tốc độ góc tối đa cho phép để nhận điểm bonus khi tiếp đất hoàn hảo
 
     [Header("Score Animation")]
@@ -205,6 +207,17 @@ public class PlayerBalance : MonoBehaviour
                         greatEffectTimer = greatEffectDuration;
                     }
                     Debug.Log("Perfect landing! Bonus points awarded.");
+                }
+                else if (actualLandingTilt <= greatLandingBonusAngle)
+                {
+                    rawScore += greatJumpTrickPoints; // Cộng điểm thưởng Great vào rawScore
+                    if (greatEffectText != null)
+                    {
+                        greatEffectText.text = $"X{greatJumpTrickPoints} POINT GREAT!"; // Hiển thị tin nhắn "Great!"
+                        greatEffectText.gameObject.SetActive(true);
+                        greatEffectTimer = greatEffectDuration;
+                    }
+                    Debug.Log("Great landing! Bonus points awarded.");
                 }
                 else if (actualLandingTilt <= maxLandingAngle)
                 {
