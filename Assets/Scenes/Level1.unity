@@ -541,7 +541,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194042246}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -291.6373, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -18919,12 +18919,13 @@ MonoBehaviour:
   maxBalanceAngle: 30
   resetSpeed: 5
   jumpForce: 10
-  doubleJumpForce: 7
+  doubleJumpForce: 20
   doubleJumpTimeWindow: 0.5
   flipSpeed: 720
   groundAlignmentSpeed: 19
   midAirBalanceSpeedMultiplier: 0.5
   maxMidAirBalanceAngle: 45
+  freeFallBalanceDriftSpeed: 10
   gameOverPanel: {fileID: 438900715}
   fallOverRotationSpeed: 300
   fallAnimationDuration: 1
@@ -18936,7 +18937,11 @@ MonoBehaviour:
   greatEffectText: {fileID: 194042248}
   scorePerSecond: 50
   doubleJumpTrickPoints: 1000
+  greatJumpTrickPoints: 500
   greatEffectDuration: 1
+  perfectLandingBonusAngle: 10
+  greatLandingBonusAngle: 30
+  maxPerfectLandingAngularVelocity: 50
   scorePulseScale: 1.2
   scorePulseDuration: 0.2
   normalScoreColor: {r: 1, g: 1, b: 1, a: 1}

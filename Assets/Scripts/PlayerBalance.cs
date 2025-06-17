@@ -7,7 +7,7 @@ public class PlayerBalance : MonoBehaviour
     public float maxBalanceAngle = 30f; // Góc nghiêng tối đa trên mặt đất
     public float resetSpeed = 5f; // Tốc độ trả về vị trí cân bằng
     public float jumpForce = 5f; // Lực nhảy của nhân vật
-    public float doubleJumpForce = 7f; // Lực nhảy cho lần nhảy thứ hai. Tăng giá trị này để nhảy cao hơn.
+    public float doubleJumpForce = 20f; // Lực nhảy cho lần nhảy thứ hai. Tăng giá trị này để nhảy cao hơn.
     public float doubleJumpTimeWindow = 0.5f; // Thời gian cho phép thực hiện double jump
     public float flipSpeed = 720f; // Tốc độ xoay 360 độ (độ/giây)
 
