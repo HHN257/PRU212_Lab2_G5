@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro; // Đảm bảo thêm namespace này nếu bạn dùng TextMeshPro
+using System.Collections;
 
 public class PlayerBalance : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class PlayerBalance : MonoBehaviour
     public float maxBalanceAngle = 30f; // Góc nghiêng tối đa trên mặt đất
     public float resetSpeed = 5f; // Tốc độ trả về vị trí cân bằng
     public float jumpForce = 5f; // Lực nhảy của nhân vật
-    public float doubleJumpForce = 20f; // Lực nhảy cho lần nhảy thứ hai. Tăng giá trị này để nhảy cao hơn.
+    public float doubleJumpForce = 15f; // Lực nhảy cho lần nhảy thứ hai. Tăng giá trị này để nhảy cao hơn.
     public float doubleJumpTimeWindow = 0.5f; // Thời gian cho phép thực hiện double jump
     public float flipSpeed = 720f; // Tốc độ xoay 360 độ (độ/giây)
 
@@ -23,6 +24,7 @@ public class PlayerBalance : MonoBehaviour
 
     [Header("Game Over Condition")]
     public GameObject gameOverPanel; // Kéo thả UI Panel Game Over vào đây
+    private GameOverManager gameOverManager; // Tham chiếu tới GameOverManager
     public float fallOverRotationSpeed = 300f; // Tốc độ quay khi ngã xuống (độ/giây). Dùng cho Slerp
     public float fallAnimationDuration = 1.0f; // Thời gian để nhân vật lộn vòng hết trước khi game over
     public float maxLandingAngle = 60f; // Góc nghiêng tối đa cho phép khi tiếp đất
@@ -82,6 +84,15 @@ public class PlayerBalance : MonoBehaviour
     // Biến để lưu trữ góc nghiêng khi tiếp đất
     private float landingBalanceAngle = 0f;
 
+    [Header("Sound Effects")]
+    public AudioSource jumpAudioSource; // Kéo AudioSource phát âm thanh nhảy vào đây
+    public AudioSource landAudioSource; // Kéo AudioSource phát âm thanh đáp đất vào đây
+    public AudioSource doubleJumpAudioSource; // Kéo AudioSource phát âm thanh double jump vào đây
+    public AudioSource fallOverAudioSource; // Kéo AudioSource phát âm thanh ngã xuống vào đây
+    public AudioSource backgroundMusicAudioSource; // Kéo AudioSource nhạc nền vào đây
+    public AudioSource greatDoubleJumpAudioSource; // Kéo AudioSource phát âm thanh double jump Great vào đây
+    public AudioSource perfectDoubleJumpAudioSource; // Kéo AudioSource phát âm thanh double jump Perfect vào đây
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -90,10 +101,16 @@ public class PlayerBalance : MonoBehaviour
             Debug.LogError("Rigidbody2D not found on PlayerBalance object!");
         }
 
+        // Tìm và gán GameOverManager từ gameOverPanel
         if (gameOverPanel != null)
         {
-            gameOverPanel.SetActive(false);
+            gameOverManager = gameOverPanel.GetComponent<GameOverManager>();
+            if (gameOverManager == null)
+            {
+                Debug.LogError("GameOverManager component not found on gameOverPanel!");
+            }
         }
+
         Time.timeScale = 1f; 
         wasGrounded = IsGrounded(); 
         hasDoubleJumped = false;
@@ -190,6 +207,9 @@ public class PlayerBalance : MonoBehaviour
 
             // Chơi hiệu ứng đáp đất
             if (landingEffect != null) landingEffect.Play();
+            // Phát âm thanh đáp đất
+            if (landAudioSource != null)
+                landAudioSource.Play();
 
             // Kiểm tra nếu cú double jump 360 độ được hoàn thành thành công và tiếp đất an toàn
             if (doubleJumpFlipCompleted) // Cú flip đã hoàn thành trong không trung
@@ -207,6 +227,9 @@ public class PlayerBalance : MonoBehaviour
                         greatEffectTimer = greatEffectDuration;
                     }
                     Debug.Log("Perfect landing! Bonus points awarded.");
+                    // Phát âm thanh Perfect
+                    if (perfectDoubleJumpAudioSource != null)
+                        perfectDoubleJumpAudioSource.Play();
                 }
                 else if (actualLandingTilt <= greatLandingBonusAngle)
                 {
@@ -218,6 +241,9 @@ public class PlayerBalance : MonoBehaviour
                         greatEffectTimer = greatEffectDuration;
                     }
                     Debug.Log("Great landing! Bonus points awarded.");
+                    // Phát âm thanh Great
+                    if (greatDoubleJumpAudioSource != null)
+                        greatDoubleJumpAudioSource.Play();
                 }
                 else if (actualLandingTilt <= maxLandingAngle)
                 {
@@ -281,6 +307,9 @@ public class PlayerBalance : MonoBehaviour
                 hasDoubleJumped = false;
                 doubleJumpFlipCompleted = false; // Reset cờ khi nhảy lần đầu
                 lastJumpTime = Time.time;
+                // Phát âm thanh nhảy
+                if (jumpAudioSource != null)
+                    jumpAudioSource.Play();
             }
             else if (canDoubleJump && !hasDoubleJumped && Time.time - lastJumpTime <= doubleJumpTimeWindow)
             {
@@ -288,11 +317,13 @@ public class PlayerBalance : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, doubleJumpForce);
                 canDoubleJump = false;
                 hasDoubleJumped = true;
-                
                 // Bắt đầu nhào lộn
                 isFlipping = true;
                 currentFlipRotationAmount = 0f; // Reset góc quay cho cú lộn
                 initialFlipAngle = rb.rotation; // Ghi lại góc quay ban đầu của rigidbody
+                // Phát âm thanh double jump
+                if (doubleJumpAudioSource != null)
+                    doubleJumpAudioSource.Play();
             }
             else
             {
@@ -394,16 +425,17 @@ public class PlayerBalance : MonoBehaviour
     private void TriggerGameOver()
     {
         isGameOver = true;
-        isFallingOver = false; 
+        isFallingOver = false;
 
         Debug.Log("Game Over! Player lost balance!");
 
-        Time.timeScale = 0f; 
-        if (gameOverPanel != null)
+        // Tắt hiển thị điểm số trong game khi màn hình Game Over xuất hiện
+        if (scoreText != null)
         {
-            gameOverPanel.SetActive(true);
+            scoreText.gameObject.SetActive(false);
         }
-        transform.rotation = targetFallRotation; 
+
+        transform.rotation = targetFallRotation;
 
         // Chơi hiệu ứng Crash Effect khi Game Over
         if (crashEffect != null) crashEffect.Play();
@@ -411,6 +443,35 @@ public class PlayerBalance : MonoBehaviour
         // Dừng các hiệu ứng hạt khác khi game over
         if (dustParticles != null) dustParticles.Stop();
         if (landingEffect != null) landingEffect.Stop();
+
+        // Phát âm thanh ngã xuống (chết)
+        float fallSoundDuration = 0.5f;
+        if (fallOverAudioSource != null && fallOverAudioSource.clip != null)
+        {
+            fallOverAudioSource.Play();
+            fallSoundDuration = Mathf.Min(fallOverAudioSource.clip.length, 1.5f);
+        }
+
+        // Dừng nhạc nền
+        if (backgroundMusicAudioSource != null)
+            backgroundMusicAudioSource.Stop();
+
+        // Bắt đầu coroutine để chờ sound xong mới hiện Game Over Panel
+        StartCoroutine(ShowGameOverAfterSound(fallSoundDuration));
+    }
+
+    private IEnumerator ShowGameOverAfterSound(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+        if (gameOverManager != null)
+        {
+            gameOverManager.ShowGameOver((int)score); // Truyền điểm số cuối cùng
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            if (gameOverPanel != null) gameOverPanel.SetActive(true);
+        }
     }
 
     private void UpdateScoreDisplay()

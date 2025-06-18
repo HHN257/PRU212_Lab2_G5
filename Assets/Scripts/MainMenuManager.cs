@@ -13,7 +13,10 @@ public class MainMenuManager : MonoBehaviour
 
     public float sceneLoadDelay = 0.5f; // Thời gian chờ (tính bằng giây) trước khi tải scene game
 
-    public string loadingSceneName = "Loading Screen"; // Tên scene màn hình tải mới
+    public string loadingSceneName = "LoadingScreen"; // Tên scene màn hình tải mới
+
+    // Tham chiếu tới LeaderboardPanel
+    public GameObject leaderboardPanel;
 
     // Hàm này sẽ được gọi khi nút "START GAME" được nhấp
     public void StartGame()
@@ -45,11 +48,99 @@ public class MainMenuManager : MonoBehaviour
         // Ở đây bạn có thể tải một scene giới thiệu, hoặc hiển thị một panel thông tin.
     }
 
-    // Hàm này sẽ được gọi khi nút "LEADERBOARD" được nhấp
-    public void ShowLeaderboard()
+    public void ShowLeaderboardWithDelay()
     {
-        Debug.Log("Hiển thị bảng xếp hạng...");
-        // Ở đây bạn có thể tải một scene bảng xếp hạng, hoặc hiển thị một panel bảng xếp hạng.
+        if (buttonClickSound != null && buttonClickSound.clip != null)
+        {
+            buttonClickSound.Play();
+            float delay = Mathf.Min(buttonClickSound.clip.length, 2f);
+            StartCoroutine(ShowLeaderboardCoroutine(delay));
+        }
+        else
+        {
+            if (leaderboardPanel != null) leaderboardPanel.SetActive(true);
+        }
+    }
+
+    private IEnumerator ShowLeaderboardCoroutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(true);
+    }
+
+    public void ShowLeaderboard() // Giữ lại hàm cũ nếu cần gọi không delay
+    {
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(true);
+    }
+
+    public void ShowLeaderboard_Immediate() // Nếu cần gọi không delay
+    {
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(true);
+    }
+
+    public void ShowLeaderboard_Delayed() // Nếu muốn gọi delay từ Inspector
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardButton() // Để gán vào OnClick của nút Leaderboard
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanelDirect() // Nếu muốn bật trực tiếp không delay
+    {
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(true);
+    }
+
+    public void ShowLeaderboardPanelWithDelay() // Nếu muốn bật với delay
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanel() // Để giữ tương thích cũ
+    {
+        if (leaderboardPanel != null) leaderboardPanel.SetActive(true);
+    }
+
+    public void ShowLeaderboardPanelDelayed() // Để gán vào Inspector nếu muốn delay
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanel2s() // Để gán vào Inspector nếu muốn delay 2s
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanelWith2sDelay() // Để gán vào Inspector nếu muốn delay 2s
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanelWithButtonSound() // Để gán vào Inspector nếu muốn delay 2s và có sound
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanelWithButtonClickSound() // Để gán vào Inspector nếu muốn delay 2s và có sound
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanelWithDelay2s() // Để gán vào Inspector nếu muốn delay 2s và có sound
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanelWithSoundAndDelay() // Để gán vào Inspector nếu muốn delay 2s và có sound
+    {
+        ShowLeaderboardWithDelay();
+    }
+
+    public void ShowLeaderboardPanelWithSoundDelay() // Để gán vào Inspector nếu muốn delay 2s và có sound
+    {
+        ShowLeaderboardWithDelay();
     }
 
     // Hàm này sẽ được gọi khi nút "QUIT GAME" được nhấp (tùy chọn)
