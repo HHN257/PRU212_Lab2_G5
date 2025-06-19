@@ -42,9 +42,13 @@ public class LoadingScreenManager : MonoBehaviour
             // Khi tiến trình đạt 0.9 (tức là scene đã tải gần xong, sẵn sàng kích hoạt)
             if (operation.progress >= 0.9f)
             {
-                // Nếu bạn muốn đợi một chút hoặc thực hiện animation trước khi chuyển scene
-                // yield return new WaitForSeconds(1f); // Ví dụ: chờ thêm 1 giây
-
+                // Đảm bảo UI hiển thị 100%
+                if (loadingText != null) loadingText.text = "Loading... 100%";
+                if (loadingSlider != null) loadingSlider.value = 1f;
+                // Chờ thêm 1.5 giây để người chơi kịp nhìn thấy loading bar đầy
+                yield return new WaitForSeconds(1.5f);
+                // Nếu muốn chờ người chơi nhấn phím thì thay bằng:
+                // while (!Input.anyKeyDown) yield return null;
                 // Kích hoạt scene mới
                 operation.allowSceneActivation = true;
             }

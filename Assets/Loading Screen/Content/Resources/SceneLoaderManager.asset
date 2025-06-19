@@ -36,6 +36,18 @@ MonoBehaviour:
     LoadingType: 0
     FakeLoadingTime: 2
     Backgrounds: []
+  - SceneName: Trailer
+    SceneAsset: {fileID: 102900000, guid: a04370aef18d17f47940a725fe0597df, type: 3}
+    DisplayName: Trailer
+    Description: 
+    SkipType: 3
+    LoadingType: 1
+    FakeLoadingTime: 5
+    Backgrounds:
+    - {fileID: 5199484893468689805, guid: 9abb991cc8089b8458442d57c2217413, type: 3}
+    - {fileID: 21300000, guid: 2650407d6311724489f3256696e75bb0, type: 3}
+    - {fileID: 21300000, guid: af238b260179c884b93aa3248768f90b, type: 3}
+    - {fileID: 21300000, guid: d693da8ebc165674b9509bab6391e358, type: 3}
   tipsList:
   - Create beautiful loading screens for improved your game
   - Easy to use and implement
