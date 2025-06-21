@@ -482,6 +482,15 @@ public class PlayerBalance : MonoBehaviour
         }
     }
 
+    public void TriggerGameOverByObstacle()
+    {
+        if (!isGameOver)
+        {
+            Debug.Log("Game Over! Hit obstacle.");
+            TriggerGameOver();
+        }
+    }
+
     void OnDrawGizmos()
     {
         if (groundCheck == null)
