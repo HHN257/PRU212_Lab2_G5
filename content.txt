@@ -1,0 +1,37 @@
+Game Concept: "Snow Boarder"
+Overview:
+Genre: Sports, Arcade
+Platform: PC
+Gameplay Mechanics:
+Snowboarding Adventure (20 points):
+Player controls a snowboarder navigating downhill slopes.
+Responsive controls for turning left and right.
+Incorporate speed control for an immersive experience.
+Unity's Physics Engine: Slope Physics (15 points):
+Utilize Unity's physics engine for realistic snowboarding movements.
+Implement friction, gravity, and momentum based on the slope inclination.
+Obstacle Course and Challenges (20 points):
+Design levels with various obstacles such as ramps, jumps, and trees.
+Include challenges like collecting snowflakes or performing tricks for extra points.
+User Interface Design (10 points):
+Main menu with Start, Options, and Quit buttons.
+In-game HUD displaying the current score, speed, and player lives.
+Handling Collisions and Triggers (15 points):
+Implement collisions with obstacles affecting the player's speed or causing a crash.
+Use triggers for power-ups (speed boosts, invincibility) or shortcuts.
+Game Logic and Scoring Systems (20 points):
+Score points based on speed, collected items, and successful tricks.
+Incorporate a combo system for chaining tricks together.
+Implement a scoring multiplier for consecutive successful moves.
+Visuals and Aesthetics:
+Crisp 2D graphics with a winter-themed environment.
+Dynamic weather effects like falling snow or changing visibility.
+Smooth character animations for snowboarding maneuvers.
+Additional Features (Optional):
+Different snowboarding characters with unique stats.
+Multiple mountains with varying difficulty levels.
+Time trial mode for competitive gameplay.
+Customizable snowboards and outfits.
+Submission Guidelines:
+Submit the Unity project file or a compressed folder containing the project files.
+Include a brief document explaining your design decisions, challenges faced, and any additional features you implemented.
