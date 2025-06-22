@@ -491,6 +491,14 @@ public class PlayerBalance : MonoBehaviour
         }
     }
 
+    // Add this method to allow coins to add score
+    public void AddScore(int amount)
+    {
+        rawScore += amount;
+        score = (long)rawScore;
+        UpdateScoreDisplay();
+    }
+
     void OnDrawGizmos()
     {
         if (groundCheck == null)
