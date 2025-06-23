@@ -284,7 +284,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Santa_0: 3955740310808264383
+      Santa_1: 8564775888813304432
+      Santa_2: -1532199066618313322
+      Santa_3: -6440259708007145690
+      Santa_4: 326643750593186299
+      Santa_5: 6925406637669616717
+      Santa_6: 2239290139486586513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
