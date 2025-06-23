@@ -10,6 +10,8 @@ public class SmokeHazard : MonoBehaviour
             // Lấy component PlayerBalance từ người chơi
             PlayerBalance player = other.GetComponent<PlayerBalance>();
 
+            Debug.Log("Player va chạm khói! hasDoubleJumped = " + (player != null ? player.hasDoubleJumped.ToString() : "null"));
+
             // Nếu tìm thấy component và người chơi *chưa* thực hiện double jump
             // (Sử dụng biến hasDoubleJumped mà chúng ta vừa đổi thành public)
             if (player != null && !player.hasDoubleJumped)
