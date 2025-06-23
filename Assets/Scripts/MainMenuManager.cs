@@ -18,6 +18,9 @@ public class MainMenuManager : MonoBehaviour
     // Tham chiếu tới LeaderboardPanel
     public GameObject leaderboardPanel;
 
+    // Tham chiếu tới InstructionPanel
+    public GameObject instructionPanel;
+
     // Hàm này sẽ được gọi khi nút "START GAME" được nhấp
     public void StartGame()
     {
@@ -45,7 +48,7 @@ public class MainMenuManager : MonoBehaviour
     public void ShowIntroduction()
     {
         Debug.Log("Hiển thị giới thiệu...");
-        // Ở đây bạn có thể tải một scene giới thiệu, hoặc hiển thị một panel thông tin.
+        if (instructionPanel != null) instructionPanel.SetActive(true);
     }
 
     public void ShowLeaderboardWithDelay()
@@ -148,5 +151,15 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Đang thoát trò chơi...");
         Application.Quit(); // Chú ý: Hàm này chỉ hoạt động khi chạy bản build game, không phải trong Editor.
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        // If the instruction panel is active and Escape is pressed, hide it
+        if (instructionPanel != null && instructionPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            instructionPanel.SetActive(false);
+        }
     }
 } 
