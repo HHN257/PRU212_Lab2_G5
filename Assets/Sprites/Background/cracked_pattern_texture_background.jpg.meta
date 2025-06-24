@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cracked_pattern_texture_background_0: 5786055376013826981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
