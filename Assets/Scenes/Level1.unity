@@ -325,7 +325,7 @@ Transform:
   m_GameObject: {fileID: 18619606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.26, y: 13.14, z: -10}
+  m_LocalPosition: {x: -54.09, y: 9.37, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18688,7 +18688,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 82fba38a00afffd42b6934a656f914e9, type: 3}
   m_Resource: {fileID: 8300000, guid: 82fba38a00afffd42b6934a656f914e9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.632
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -21477,7 +21477,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.26, y: 13.14, z: -10}
+  m_LocalPosition: {x: -54.09, y: 9.37, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55254,8 +55254,8 @@ MonoBehaviour:
   followDistance: 2
   pushForce: 10
   maxSlopeAngle: 30
-  killSpeed: 5
-  maxSpeed: 10
+  killSpeed: 7
+  maxSpeed: 12
 --- !u!58 &1353418392
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -63402,7 +63402,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7b61b9c3179aeef4a88933dd21a5499b, type: 3}
   m_Resource: {fileID: 8300000, guid: 7b61b9c3179aeef4a88933dd21a5499b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -70485,8 +70485,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824253738}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.26, y: 13.14, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.084749065, w: 0.9964023}
+  m_LocalPosition: {x: -54.09, y: 9.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70496,7 +70496,7 @@ Transform:
   - {fileID: 529469337}
   - {fileID: 1141443149}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.723}
 --- !u!114 &1824253743
 MonoBehaviour:
   m_ObjectHideFlags: 0
