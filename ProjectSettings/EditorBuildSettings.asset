@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/DungeonMonsters2D/Scene/Demo.unity
+    guid: 02fc4a76233fe7e41a27da142de6d308
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: dbb56b5eae639c14a9b526383ccff032
   - enabled: 1
