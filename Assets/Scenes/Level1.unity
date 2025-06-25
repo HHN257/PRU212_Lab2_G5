@@ -63389,6 +63389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extraModeText: {fileID: 400629380}
   extraModeAudio: {fileID: 1650979132}
+  crashEffect: {fileID: 1130607463}
+  dustParticles: {fileID: 529469339}
 --- !u!82 &1650979132
 AudioSource:
   m_ObjectHideFlags: 0

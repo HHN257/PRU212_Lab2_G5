@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 71d410867b49d454289b8dd31cf1d471
+guid: c70f1611ba516a84cb297084619a21ec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4620417255052627886
-    second: snowball-Photoroom_0
+      213: 3959922740387019359
+    second: X_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snowball-Photoroom_0
+      name: X_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 87
-        width: 227
-        height: 225
+        x: 0
+        y: 0
+        width: 296
+        height: 171
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 250b08e8cfaf0efb0800000000000000
-      internalID: -4620417255052627886
+      spriteID: f5a72c670c874f630800000000000000
+      internalID: 3959922740387019359
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      snowball-Photoroom_0: -4620417255052627886
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
