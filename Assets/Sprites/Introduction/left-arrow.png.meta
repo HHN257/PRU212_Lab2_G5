@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 71d410867b49d454289b8dd31cf1d471
+guid: 3150b61b5335c2346a92202bb0bface5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4620417255052627886
-    second: snowball-Photoroom_0
+      213: 3385855733523892640
+    second: left-arrow_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: snowball-Photoroom_0
+      name: left-arrow_0
       rect:
         serializedVersion: 2
-        x: 46
-        y: 87
-        width: 227
-        height: 225
+        x: 78
+        y: 66
+        width: 356
+        height: 379
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 250b08e8cfaf0efb0800000000000000
-      internalID: -4620417255052627886
+      spriteID: 0a94961c9d9fcfe20800000000000000
+      internalID: 3385855733523892640
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      snowball-Photoroom_0: -4620417255052627886
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
