@@ -23,8 +23,8 @@ public class ExtraModeTrigger : MonoBehaviour
                 extraModeAudio.Play();
             }
 
-            // Đổi màu sau 5 giây
-            StartCoroutine(ChangeParticlesColorAfterDelay(5f));
+            // Đổi màu sau 4 giây
+            StartCoroutine(ChangeParticlesColorAfterDelay(4f));
         }
     }
 
