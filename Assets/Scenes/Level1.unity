@@ -55254,8 +55254,8 @@ MonoBehaviour:
   followDistance: 2
   pushForce: 10
   maxSlopeAngle: 30
-  killSpeed: 7
-  maxSpeed: 12
+  killSpeed: 6
+  maxSpeed: 11
 --- !u!58 &1353418392
 CircleCollider2D:
   m_ObjectHideFlags: 0
