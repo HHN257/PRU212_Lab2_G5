@@ -18,6 +18,10 @@ public class MainMenuManager : MonoBehaviour
     // Tham chiếu tới LeaderboardPanel
     public GameObject leaderboardPanel;
 
+    public GameObject introductionPanel;
+
+    public GameObject soundSettingPanel;
+
     // Hàm này sẽ được gọi khi nút "START GAME" được nhấp
     public void StartGame()
     {
@@ -45,6 +49,10 @@ public class MainMenuManager : MonoBehaviour
     public void ShowIntroduction()
     {
         Debug.Log("Hiển thị giới thiệu...");
+
+        if (introductionPanel != null)
+        introductionPanel.SetActive(true);
+        
         // Ở đây bạn có thể tải một scene giới thiệu, hoặc hiển thị một panel thông tin.
     }
 
@@ -141,6 +149,18 @@ public class MainMenuManager : MonoBehaviour
     public void ShowLeaderboardPanelWithSoundDelay() // Để gán vào Inspector nếu muốn delay 2s và có sound
     {
         ShowLeaderboardWithDelay();
+    }
+
+    public void ShowSoundSettingPanel()
+    {
+        if (soundSettingPanel != null)
+            soundSettingPanel.SetActive(true);
+    }
+
+    public void HideSoundSettingPanel()
+    {
+        if (soundSettingPanel != null)
+            soundSettingPanel.SetActive(false);
     }
 
     // Hàm này sẽ được gọi khi nút "QUIT GAME" được nhấp (tùy chọn)

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Effects
+  - SnowBall
   layers:
   - Default
   - TransparentFX
@@ -12,13 +14,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Background
+  - Effects
   - Ground
-  - 
-  - 
-  - 
-  - 
+  - Default
+  - Foreground
+  - Player
+  - SnowBall
   - 
   - 
   - 
@@ -39,8 +41,26 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2001675353
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2065201357
+    locked: 0
+  - name: Player
+    uniqueID: 2293704069
+    locked: 0
+  - name: Effects
+    uniqueID: 4003414315
+    locked: 0
+  - name: Foreground
+    uniqueID: 1405443577
+    locked: 0
+  - name: UI
+    uniqueID: 1278079661
     locked: 0
   m_RenderingLayers:
   - Default

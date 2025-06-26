@@ -76,7 +76,7 @@ public class PlayerBalance : MonoBehaviour
     private bool isFlipping = false;
     private float currentFlipRotationAmount = 0f; // Sử dụng để tích lũy góc quay của cú nhào lộn
     private float initialFlipAngle; // Góc quay ban đầu của rigidbody khi bắt đầu nhào lộn
-    private bool hasDoubleJumped = false; 
+    public bool hasDoubleJumped = false; 
 
     // Biến cho animation điểm số thủ công
     private float scoreAnimationTimer = 0f;
@@ -480,6 +480,23 @@ public class PlayerBalance : MonoBehaviour
         {
             scoreText.text = score.ToString("D6");
         }
+    }
+
+    public void TriggerGameOverByObstacle()
+    {
+        if (!isGameOver)
+        {
+            Debug.Log("Game Over! Hit obstacle.");
+            TriggerGameOver();
+        }
+    }
+
+    // Add this method to allow coins to add score
+    public void AddScore(int amount)
+    {
+        rawScore += amount;
+        score = (long)rawScore;
+        UpdateScoreDisplay();
     }
 
     void OnDrawGizmos()
